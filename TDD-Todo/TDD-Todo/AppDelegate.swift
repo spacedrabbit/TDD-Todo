@@ -8,59 +8,6 @@
 
 import UIKit
 
-struct Kittens: Comparable {
-  let name: String
-  
-  static func ==(lhs: Kittens, rhs: Kittens) -> Bool {
-    return lhs.name == rhs.name
-  }
-  
-  static func >(lhs: Kittens, rhs: Kittens) -> Bool {
-    return lhs.name > rhs.name
-  }
-  
-  static func <(lhs: Kittens, rhs: Kittens) -> Bool {
-    return lhs.name < rhs.name
-  }
-  
-  static func <=(lhs: Kittens, rhs: Kittens) -> Bool {
-    return lhs.name <= rhs.name
-  }
-  
-  static func >=(lhs: Kittens, rhs: Kittens) -> Bool {
-    return lhs.name >= rhs.name
-  }
-}
-
-extension Kittens: Sequence {
-
-  func makeIterator() -> KittensSequence {
-    return KittensSequence([self])
-  }
-}
-
-struct KittensSequence: Sequence, IteratorProtocol {
-  var seqArr: [Kittens]!
-  var currentPosition: Int = 0
-  typealias Stride = Kittens
-  
-  init(_ kittens: [Kittens]) {
-    self.seqArr = kittens
-  }
-  
-  mutating func next() -> Kittens? {
-    if currentPosition < seqArr.count - 1 {
-      let returnKitten = self.seqArr[currentPosition]
-      currentPosition += 1
-      return returnKitten
-    }
-    
-    return nil
-  }
-}
-
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -68,16 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
-    let allKittens: [Kittens] = [Kittens(name: "Miley"), Kittens(name: "Bale"), Kittens(name: "Garfield")]
-    //for kitten in allKittens {
-    // print(kitten.name)
-      //}
-    
-    let kittenSeq = KittensSequence(allKittens)
-    for kitten in kittenSeq {
-      print(kitten.name)
-    }
 
     // Override point for customization after application launch.
     return true

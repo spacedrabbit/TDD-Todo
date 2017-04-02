@@ -45,7 +45,7 @@
 		14D223361E8C76E100ECA88B /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = "TDD-Todo/Model/Location.swift"; sourceTree = SOURCE_ROOT; };
 		14D223381E8C77FC00ECA88B /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		14D2233B1E8C79AB00ECA88B /* ItemManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemManagerTests.swift; sourceTree = "<group>"; };
-		14D2233D1E8C79EE00ECA88B /* ItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
+		14D2233D1E8C79EE00ECA88B /* ItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemManager.swift; path = "TDD-TodoTests/ItemManager.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				14D2233A1E8C780600ECA88B /* Model */,
-				1419E9581E886146007C8067 /* AppDelegate.swift */,
+				14CFFC7A1E91954400116967 /* Supporting Files */,
 				1419E95A1E886146007C8067 /* ViewController.swift */,
-				1419E95C1E886147007C8067 /* Main.storyboard */,
-				1419E95F1E886147007C8067 /* Assets.xcassets */,
-				1419E9611E886147007C8067 /* LaunchScreen.storyboard */,
-				1419E9641E886147007C8067 /* Info.plist */,
 			);
 			path = "TDD-Todo";
 			sourceTree = "<group>";
@@ -105,9 +101,20 @@
 				14D223381E8C77FC00ECA88B /* LocationTests.swift */,
 				1419E96F1E886147007C8067 /* Info.plist */,
 				14D2233B1E8C79AB00ECA88B /* ItemManagerTests.swift */,
-				14D2233D1E8C79EE00ECA88B /* ItemManager.swift */,
 			);
 			path = "TDD-TodoTests";
+			sourceTree = "<group>";
+		};
+		14CFFC7A1E91954400116967 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1419E9581E886146007C8067 /* AppDelegate.swift */,
+				1419E95C1E886147007C8067 /* Main.storyboard */,
+				1419E95F1E886147007C8067 /* Assets.xcassets */,
+				1419E9611E886147007C8067 /* LaunchScreen.storyboard */,
+				1419E9641E886147007C8067 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		14D2233A1E8C780600ECA88B /* Model */ = {
@@ -115,6 +122,7 @@
 			children = (
 				14D223341E8C732A00ECA88B /* ToDoItem.swift */,
 				14D223361E8C76E100ECA88B /* Location.swift */,
+				14D2233D1E8C79EE00ECA88B /* ItemManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";

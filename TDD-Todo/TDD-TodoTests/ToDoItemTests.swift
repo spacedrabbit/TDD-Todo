@@ -45,4 +45,7 @@ class ToDoItemTests: XCTestCase {
     
     XCTAssertEqual(todo.location?.name, location.name)
   }
+  
+  // Implementing Equatable
+  
 }
