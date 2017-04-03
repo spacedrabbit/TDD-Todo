@@ -34,7 +34,9 @@ class ViewController: UIViewController {
     //    simpleQueue_sync()
     //    simpleQueue_async()
     //    queuesWithQoS()
-    concurrentQueues()
+    //    concurrentQueues()
+    //    queueWithDelay()
+    useWorkItem()
   }
   
   func executeQueues() {
@@ -121,7 +123,10 @@ class ViewController: UIViewController {
 //    let queue = DispatchQueue(label: "com.catthoughts.queue_1", qos: .utility, attributes: .concurrent)
     
     // It is also possible to set a queue to be initially inactive, and then to later activate its tasks
-    let queue = DispatchQueue(label: "com.catthoughts.queue_1", qos: .utility, attributes: .initiallyInactive)
+//    let queue = DispatchQueue(label: "com.catthoughts.queue_1", qos: .utility, attributes: .initiallyInactive)
+    
+    // Not only that, but it is possible to be initially inactive and concurrent
+    let queue = DispatchQueue(label: "com.catthoughts.queue_1", qos: .utility, attributes: [.initiallyInactive, .concurrent])
     self.inactiveQueue = queue
     queue.async {
       for i in 1...10 {
@@ -142,5 +147,42 @@ class ViewController: UIViewController {
     }
   }
   
+  /*
+   Part 4: Queues with Delay
+   */
+  func queueWithDelay() {
+    let delayQueue = DispatchQueue(label: "com.catthoughts.delay", qos: .userInitiated)
+    print(Date())
+    let additionalTime: DispatchTimeInterval = .seconds(2)
+    
+    delayQueue.asyncAfter(deadline: .now() + additionalTime) {
+      print(Date())
+    }
+  }
+  
+  /*
+   Part 6: Dispatch Work Items
+   (part 5 was using main to push ui updates following a network call, meh)
+   */
+  
+  func useWorkItem() {
+    var value = 10
+    let workItem = DispatchWorkItem {
+      value += 5
+    }
+    
+    let queue = DispatchQueue.global()
+//    queue.async {
+//      workItem.perform()
+//    }
+    
+    // also works like:
+    queue.async(execute: workItem)
+    
+    // with work items, you can also notify the main queue
+    workItem.notify(queue: DispatchQueue.main) { 
+      print("value =", value)
+    }
+  }
 }
 
